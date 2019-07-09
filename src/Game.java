@@ -11,6 +11,11 @@ public class Game {
     private int wrongAnswers = 0;
     public ArrayList<Character> previousLetters = new ArrayList<Character>();
 
+
+    /**
+     * choose a movie randomly from movies.txt.
+     * Assign chosenMovie and hiddenMovie fields of the object according to the chosen movie.
+     */
     public void generateMovie() {
         // creating the arrayList of movie names.
         File file = new File("movies.txt");
@@ -33,6 +38,12 @@ public class Game {
         this.hiddenMovie = hiddenMovie;
     }
 
+
+    /**
+     * take the input letter as the guess.
+     * check whether this letter was tried earlier or not.
+     * if not, check whether the letter is valid in the movie name.
+     */
     public void makeGuess() {
         System.out.println("Your are guessing: " + this.hiddenMovie);
         System.out.println("You have guessed ( " + this.wrongAnswers + ") wrong letters:");
