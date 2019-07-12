@@ -1,3 +1,9 @@
+# macOS stuff
+.DS_Store
+
+# intellij IDEA folder
+.idea/
+
 # Compiled class file
 *.class
 
