@@ -3,13 +3,15 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import static java.lang.System.out;
+
 public class Game {
 
     // fields
-    public String chosenMovie = new String();
-    public String hiddenMovie = new String();
+    private String chosenMovie = new String();
+    private String hiddenMovie = new String();
     private int wrongAnswers = 0;
-    public ArrayList<Character> previousLetters = new ArrayList<Character>();
+    private ArrayList<Character> previousLetters = new ArrayList<>();
 
 
     /**
@@ -25,14 +27,14 @@ public class Game {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-        ArrayList<String> movieList = new ArrayList<String>();
+        ArrayList<String> movieList = new ArrayList<>();
         while (sc.hasNextLine()) {
             movieList.add(sc.nextLine());
         }
         // selecting the random movie.
         int randInd = (int) ((Math.random() * movieList.size()));
         String chosenMovie = movieList.get(randInd);
-        String hiddenMovie = chosenMovie.replaceAll("[a-zA-Z]", "_");
+        String hiddenMovie = chosenMovie.replaceAll("\\S", "_");
 
         this.chosenMovie = chosenMovie;
         this.hiddenMovie = hiddenMovie;
@@ -45,9 +47,9 @@ public class Game {
      * if not, check whether the letter is valid in the movie name.
      */
     public void makeGuess() {
-        System.out.println("Your are guessing: " + this.hiddenMovie);
-        System.out.println("You have guessed ( " + this.wrongAnswers + ") wrong letters:");
-        System.out.println("Guess a  letter: ");
+        out.println("Your are guessing: " + this.hiddenMovie);
+        out.println("You have guessed ( " + this.wrongAnswers + ") wrong letters:");
+        out.println("Guess a  letter: ");
         Scanner in = new Scanner(System.in);
         char letter = in.nextLine().toCharArray()[0];
 

@@ -19,7 +19,7 @@ public class GuessTheMovie {
             }
         }
 
-        // 10 wrong answers mean that you lost.
+        // 10 wrong answers mean that you lost the game.
         if (game.getWrongAnswers() == 10) {
             System.out.println("Sorry. U lost the game.");
             System.out.println("The movie was " + game.getChosenMovie());
